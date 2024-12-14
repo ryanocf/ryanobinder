@@ -19,6 +19,7 @@
 ## Build
 
 - Compile (Ahk2Exe) Hitman-Binder.ahk
+- run `pnpm install`
 - run `pnpm neutralino:build`
 - rename built executable (see Naming Scheme)
 
