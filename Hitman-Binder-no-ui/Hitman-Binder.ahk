@@ -11,11 +11,11 @@ OnExit, Close
 SetBatchLines -1
 SetKeyDelay -1
 
-;@Ahk2Exe-SetMainIcon D:\save\selfmade-binders\Hitman-Binder\Hitman-Binder.ico
-;@Ahk2Exe-AddResource D:\save\selfmade-binders\Hitman-Binder\Hitman-Binder.ico, 160
-;@Ahk2Exe-AddResource D:\save\selfmade-binders\Hitman-Binder\Hitman-Binder.ico, 206
-;@Ahk2Exe-AddResource D:\save\selfmade-binders\Hitman-Binder\Hitman-Binder.ico, 207
-;@Ahk2Exe-AddResource D:\save\selfmade-binders\Hitman-Binder\Hitman-Binder.ico, 208
+;@Ahk2Exe-SetMainIcon Hitman-Binder.ico
+;@Ahk2Exe-AddResource Hitman-Binder.ico, 160
+;@Ahk2Exe-AddResource Hitman-Binder.ico, 206
+;@Ahk2Exe-AddResource Hitman-Binder.ico, 207
+;@Ahk2Exe-AddResource Hitman-Binder.ico, 208
 ;;@Ahk2Exe-SetCompanyName ryano.cc
 ;;@Ahk2Exe-SetDescription ryano.cc
 ;;@Ahk2Exe-SetFileVersion 1.9.2.0
