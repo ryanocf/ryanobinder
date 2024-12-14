@@ -2,11 +2,7 @@
     <img src="src/assets/images/logo.png" width="128px" />
 </div>
 
-<div align="center" style="font-size: 32px; font-weight: 500">
-    ryanobinder
-</div>
-
----
+# <div align="center">ryanobinder</div>
 
 ## Requirements
 
