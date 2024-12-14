@@ -1,0 +1,8 @@
+{
+    "applicationId": "app.ryanobinder",
+    "version": "v1.0.0-alpha",
+    "resourcesURL": "https://example.com/resources.neu",
+    "data": {
+        "binderVersion": "1.9.2"
+    }
+}

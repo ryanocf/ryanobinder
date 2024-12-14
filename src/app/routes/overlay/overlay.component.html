@@ -1,0 +1,71 @@
+<div class="flex flex-col p-4 w-full h-full">
+    <div
+        class="flex flex-col w-full justify-center min-h-20 h-20 text-center object-fit overflow-clip bg-cover rounded-xl mb-8"
+        style="background-image: url('assets/images/pattern.svg'); background-position: 45%;"
+    >
+        <div class="text-3xl/none quicksand-bold text-outline-lg text-outline-stone-800">Overlay</div>
+    </div>
+    <div class="h-full overflow-y-auto">
+        <div class="relative grid grid-flow-row grid-cols-1 auto-cols-fr gap-2">
+            @for (item of overlayList; track $index;) {
+                <div
+                    class="flex flex-row p-2 w-full rounded bg-primary overflow-hidden"
+                >
+                    <div class="basis-full flex flex-1 flex-col justify-center">
+                        <div class="font-bold">{{ item.label }}</div>
+                        <!-- <div class="text-xs text-stone-400">{{ item.description }}</div> -->
+                    </div>
+                    <div
+                        class="px-2 border-l border-l-stone-800"
+                        style="border-left-style: solid;"
+                    >
+                        <p-colorPicker
+                            [ngModel]="item.color"
+                            appendTo="body"
+                            class="p-colorpicker-custom"
+                            (onChange)="colorContentChanged($event, $index)"
+                        />
+                    </div>
+                    <div
+                        class="px-2 border-l border-l-stone-800"
+                        style="border-left-style: solid;"
+                    >
+                        <p-inputNumber 
+                            [ngModel]="item.size"
+                            [showButtons]="true" 
+                            inputStyleClass="w-full rounded bg-secondary border-none"
+                            inputId="size"
+                            [format]="true"
+                            mode="decimal"
+                            suffix=" px"
+                            min="1"
+                            max="99"
+                            (onInput)="sizeContentChanged($event, $index)"
+                        />
+                    </div>
+                    <div
+                        class="px-2 border-l border-l-stone-800"
+                        style="border-left-style: solid;"
+                    >
+                        <input
+                            pInputText
+                            class="w-full rounded bg-secondary border-none"
+                            placeholder="Font"
+                            [value]="item.font"
+                            (change)="fontContentChanged($event, $index)"
+                        />
+                    </div>
+                    <div
+                        class="shrink-0 flex justify-center justify-self-end -col-end-1 items-center border-l border-l-stone-800"
+                        style="border-left-style: solid; width: 90px;"
+                    >    
+                        <p-inputSwitch
+                            [ngModel]="item.state"
+                            (onChange)="switchStateChanged($event, $index)"
+                        />
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

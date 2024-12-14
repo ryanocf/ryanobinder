@@ -1,0 +1,16 @@
+@use 'sass:map';
+
+@layer tailwind-base, tailwind-utilities;
+
+@layer tailwind-base {
+    @tailwind base;
+}
+
+@layer tailwind-utilities {
+    @tailwind components;
+    @tailwind utilities;
+}
+
+nav.fixed {
+    position: static
+}

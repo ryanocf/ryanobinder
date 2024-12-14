@@ -1,0 +1,60 @@
+<div class="flex flex-col p-4 w-full h-full">
+    <div
+        class="flex flex-col w-full justify-center min-h-20 h-20 text-center object-fit overflow-clip bg-cover rounded-xl mb-8"
+        style="background-image: url('assets/images/pattern.svg'); background-position: 45%;"
+    >
+        <div class="text-3xl/none quicksand-bold text-outline-lg text-outline-stone-800">Keybinds</div>
+    </div>
+    <!-- <div class="pb-2">
+        <p-tabMenu 
+            [model]="tabList" 
+            [activeItem]="activeTabItem" 
+            (activeItemChange)="activeTabItemChanged($event)"
+        >
+            <ng-template pTemplate="item" let-item>
+                <a pRipple class="flex align-items-center gap-2 p-menuitem-link !px-3 !py-3">
+                    <i [class]="item.icon"></i>
+                    <div>{{ item.label }}</div>
+                </a>
+            </ng-template>
+        </p-tabMenu>
+    </div> -->
+    <div class="h-full overflow-y-auto">
+        <div class="relative grid grid-flow-col grid-rows-10 grid-cols-2 auto-cols-fr gap-2">
+            @for (item of hotkeyList; track $index) {
+                <div class="flex justify-center">
+                    <div
+                        class="flex flex-row justify-between w-full mt-1 rounded bg-primary overflow-hidden"
+                    >
+                        <div *ngIf="item.disabled" class="pl-2 my-auto text-neutral-600">
+                            <i class="mdi mdi-lock"></i>
+                        </div>
+                        <input
+                            pInputText
+                            class="py-2 w-full rounded bg-primary border-none"
+                            [value]="item.content"
+                            [disabled]="item.disabled"
+                            (change)="hotkeyContentChanged($event, $index)"
+                            [attr.data-content]="'BOwn' + ($index + 1)"
+                        />
+                        <div
+                            pRipple
+                            class="relative flex justify-center items-center h-full min-w-16 w-1/4 rounded-e-md overflow-hidden cursor-pointer"
+                            (click)="setActiveHotkey($event, $index)"
+                            [attr.data-hotkey]="'Own' + ($index + 1)"
+                        >
+                            <div
+                                class="absolute flex w-52 h-52 object-fit overflow-clip bg-cover hover:bg-blend-overlay hover:bg-[#919191] transition ease-in-out"
+                                style="background-image: url('assets/images/pattern.svg'); background-position: 100%;"
+                                [ngClass]="activeHotkeyIndex === $index ? 'grayscale' : ''"
+                            ></div>
+                            <div class="absolute text-outline text-outline-stone-800 font-bold select-none">
+                                {{ item.key }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

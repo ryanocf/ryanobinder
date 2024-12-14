@@ -1,0 +1,57 @@
+<div class="flex justify-center items-center w-full h-full">
+    <form
+        [formGroup]="rootForm"
+        class="grid grid-flow-row gap-4 w-1/2 p-fluid"
+    >
+        <div class="relative grid grid-flow-row gap-2">
+            <div>Username</div>
+            <p-iconField iconPosition="left">
+                <p-inputIcon styleClass="pi pi-user" />
+                <input
+                    pInputText
+                    type="text"
+                    placeholder="Ingame Username"
+                    formControlName="UsernameControl"
+                    required
+                />
+            </p-iconField>
+            <p-tag
+                *ngIf="rootForm.get('UsernameControl')?.invalid"
+                [value]="handleControlError('UsernameControl')"
+                severity="danger"
+                icon="pi pi-times"
+                class="absolute top-0 right-0"
+            />
+        </div>
+        <div class="relative grid grid-flow-row gap-2">
+            <label>Forum URL</label>
+            <p-iconField iconPosition="left">
+                <p-inputIcon styleClass="pi pi-comments" />
+                <input
+                    pInputText
+                    type="text"
+                    placeholder="https://lyd-roleplay.de/user/33-ryano/"
+                    formControlName="ForumUrlControl"
+                    required
+                />
+            </p-iconField>
+            <p-tag
+                *ngIf="rootForm.get('ForumUrlControl')?.invalid"
+                [value]="handleControlError('ForumUrlControl')"
+                severity="danger"
+                icon="pi pi-times"
+                class="absolute top-0 right-0"
+            />
+        </div>
+        <div class="mt-8">
+            <p-button
+                label="Save"
+                icon="pi pi-save"
+                (click)="saveData()"
+                [disabled]="handleSave()"
+                [loading]="rootFormLoading"
+            >
+            </p-button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,40 @@
+
+<div class="sidebar-content quicksand-regular select-none">
+    <div class="sidebar-brand" #brand>
+        <img
+            class="sidebar-brand-image"
+            [src]="userService.avatar"
+        />
+        <div class="sidebar-brand-title quicksand-bold">{{ userService.username }}</div>
+    </div>
+    <div class="sidebar-items text-stone-400">
+        @for (item of items; track $index) {
+            <div
+                pRipple
+                class="sidebar-item cursor-pointer"
+                [routerLink]="item.routerLink"
+                routerLinkActive="sidebar-item-active"
+                [routerLinkActiveOptions]="{exact:true}"
+            >
+                <div class="sidebar-item-icon">
+                    <div [class]="item.icon"></div>
+                </div>
+                <div class="sidebar-item-text">
+                    <div class="sidebar-item-title quicksand-bold">
+                        {{ item.label }}
+                    </div>
+                    <div class="sidebar-item-description">
+                        {{ item.description }}
+                    </div>
+                </div>
+            </div>
+        }
+        <div class="sidebar-static-icon" (click)="toggle($event)">
+            <div class="mdi mdi-24px mdi-lock-outline"></div>
+        </div>
+    </div>
+</div>
+<div class="sidebar-toggler-icon">
+    <div class="mdi mdi-36px mdi-chevron-right"></div>
+</div>
+<p-contextMenu [target]="brand" [model]="contextItems" />

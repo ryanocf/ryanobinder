@@ -1,0 +1,20 @@
+<div id="dragWindow" class="relative flex flex-row w-full" style="height: 38px;">
+    <div class="flex flex-row pl-2 items-center">
+        <img src="assets/images/logo.png" class="h-7 pr-[10px]">
+        <div class="quicksand-bold text-lg/none select-none">{{ appName }}</div>
+    </div>
+</div>
+<div class="absolute top-0 right-0 flex flex-row pl-5 items-center">
+    <p-button
+        [text]="true"
+        (click)="minimizeWindow()"
+    >
+        <i class="mdi mdi-18px mdi-window-minimize"></i>
+    </p-button>
+    <p-button
+        [text]="true"
+        (click)="closeWindow()"
+    >
+        <i class="mdi mdi-18px mdi-window-close"></i>
+    </p-button>
+</div>

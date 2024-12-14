@@ -1,0 +1,109 @@
+/*
+ * sidebar
+ * can be opened, closed or static
+ */
+
+.sidebar {
+    background-color: transparent;
+    border-bottom-left-radius: $border_radius;
+    display: flex;
+    height: 95%;
+    position: absolute;
+    top: 35px;
+    width: 290px;
+
+    &-brand {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 10px;
+
+        &-image {
+            border: 2px solid $default_color;
+            border-radius: 50%;
+            height: 128px;
+            margin-bottom: 5px;
+            width: 128px;
+        }
+
+        &-title {
+            font-family: 'Quicksand-Bold', sans-serif;
+            font-size: 18px;
+        }
+    }
+
+    &-content {
+        border-bottom-left-radius: $border_radius;
+        border-top-left-radius: $border_radius;
+        height: 100%;
+        position: relative;
+        width: 290px;
+    }
+
+    &-item {
+        align-items: center;
+        border-left: solid 3px $secondary_bg;
+        display: flex;
+        flex-direction: row;
+        @include margin-x(5px);
+        @include padding-x(15px);
+        @include margin-y(10px);
+        @include transition(0.2s);
+
+        &-active {
+            border-color: $default_color;
+            color: $secondary_color;
+        }
+
+        &-description {
+            font-size: 14px;
+        }
+
+        &:hover {
+            border-left-color: $default_color;
+            color: $secondary_color;
+        }
+
+        &-icon {
+            height: 36px;
+            width: 36px;
+        }
+
+        &-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 5px;
+        }
+
+        &-title {
+            font-family: 'Quicksand-Bold', sans-serif;
+            font-size: 18px;
+        }
+    }
+
+    &-items {
+        margin-top: 25px;
+    }
+
+    &-static-icon {
+        border-radius: 25%;
+        bottom: 20px;
+        left: calc(50% - 24px + 14px / 2);
+        padding: 5px;
+        position: absolute;
+        @include transition(0.2s);
+
+        &:hover {
+            background-color: $secondary_bg;
+            color: $secondary_color;
+        }
+    }
+
+    &-toggler-icon {
+        position: absolute;
+        right: 2px;
+        top: calc(50% - 36px / 2);
+    }
+}

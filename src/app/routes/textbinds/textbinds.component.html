@@ -1,0 +1,49 @@
+<div class="flex flex-col p-4 w-full h-full">
+    <div
+        class="flex flex-col w-full justify-center min-h-20 h-20 text-center object-fit overflow-clip bg-cover rounded-xl mb-8"
+        style="background-image: url('assets/images/pattern.svg'); background-position: 45%;"
+    >
+        <div class="text-3xl/none quicksand-bold text-outline-lg text-outline-stone-800">Overlay</div>
+    </div>
+    <div class="pb-2">
+        <p-dropdown 
+            [(ngModel)]="selectedFilter"
+            [options]="tabList"
+            optionLabel="label" 
+            placeholder="Select any filter"
+            styleClass="w-full rounded rounded-t bg-primary border-none"
+            panelStyleClass="w-full rounded bg-primary border-none"
+            (onChange)="dropdownSelectionChanged($event)"
+        >
+            <ng-template pTemplate="selectedItem">
+                <div class="flex align-items-center gap-2 font-bold" *ngIf="selectedFilter">
+                    <i [class]="selectedFilter.icon"></i>
+                    <div>{{ selectedFilter.label }}</div>
+                </div>
+            </ng-template>
+            <ng-template let-item pTemplate="item">
+                <div class="flex align-items-center gap-2 font-bold">
+                    <i [class]="item.icon"></i>
+                    <div>{{ item.label }}</div>
+                </div>
+            </ng-template>
+        </p-dropdown>
+    </div>
+    <div id="scrollContainer" class="h-full overflow-y-auto">
+        <div class="relative grid grid-flow-row grid-cols-1 auto-cols-fr gap-2">
+            @for (item of getFilteredItems(); track $index;) {
+                <div
+                    class="flex flex-row p-2 w-full rounded bg-primary overflow-hidden"
+                >
+                    <div class="basis-48 flex flex-1 flex-col justify-center">
+                        <div class="font-bold">{{ item.label }}</div>
+                    </div>
+                    <div
+                        class="basis-full px-2 border-l border-l-stone-800"
+                        style="border-left-style: solid;"
+                    >{{ item.description }}</div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

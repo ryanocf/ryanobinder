@@ -1,0 +1,56 @@
+<div class="flex flex-col p-4 w-full h-full">
+    <div
+        class="flex flex-col w-full justify-center min-h-20 h-20 text-center object-fit overflow-clip bg-cover rounded-xl mb-8"
+        style="background-image: url('assets/images/pattern.svg'); background-position: 45%;"
+    >
+        <div class="text-3xl/none quicksand-bold text-outline-lg text-outline-stone-800">Miscellaneous</div>
+    </div>
+    <div class="h-full overflow-y-auto">
+        <div class="relative grid grid-flow-row grid-cols-1 auto-cols-fr gap-2">
+        @for (category of miscList; let iCategory = $index; track iCategory;) {
+            <p-accordion class="w-full">
+                <p-accordionTab headerStyleClass=" p-2 bg-primary rounded min-h-14" contentStyleClass="bg-transparent p-0 mt-2">
+                    <ng-template pTemplate="header">
+                        <div class="flex flex-col justify-center">
+                            <div class="font-bold">{{ category.label }}</div>
+                            <div class="text-xs text-stone-400">{{ category.description }}</div>
+                        </div>
+                    </ng-template>
+                    <div class="relative grid grid-flow-row grid-cols-1 auto-cols-fr gap-2">
+                    @for (item of category.items; let iItem = $index; track iItem;) {
+                        <div
+                            class="flex flex-row p-2 w-full rounded bg-primary overflow-hidden"
+                        >
+                            <div class="flex flex-col w-full pr-2">
+                                <div class="flex flex-1 flex-col justify-center">
+                                    <div class="font-bold">{{ item.label }}</div>
+                                    <div class="text-xs text-stone-400">{{ item.description }}</div>
+                                </div>
+                                <div *ngIf="item?.extra" class="mt-2">
+                                    <input
+                                        *ngIf="item?.extra.element == 'input'"
+                                        pInputText
+                                        class="w-full rounded bg-secondary border-none"
+                                        (change)="inputContentChanged($event, iCategory, iItem)"
+                                        [value]="item?.extra.content"
+                                    />
+                                </div>
+                            </div>
+                            <div
+                                class="shrink-0 flex justify-center justify-self-end -col-end-1 items-center border-l border-l-stone-800"
+                                style="border-left-style: solid; width: 90px"
+                            >    
+                                <p-inputSwitch
+                                    [ngModel]="item.state"
+                                    (onChange)="switchStateChanged($event, iCategory, iItem)"
+                                />
+                            </div>
+                        </div>
+                    }
+                    </div>
+                </p-accordionTab>
+            </p-accordion>
+        }
+        </div>
+    </div>
+</div>

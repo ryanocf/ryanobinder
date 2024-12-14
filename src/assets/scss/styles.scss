@@ -1,0 +1,60 @@
+@use 'sass:map';
+
+@import './.ignore/variables';
+@import './.ignore/mixins';
+@import './.ignore/functions';
+@import './.ignore/animations';
+
+@import './.ignore/theme';
+@import './tailwind';
+
+@import './.ignore/fonts';
+@import './.ignore/components';
+
+body, html {
+    background-color: $primary_bg;
+    overflow: hidden;
+    font-family: "Twemoji Country Flags", "Inter var", sans-serif;
+    // width: 1000px;
+    // height: 600px;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    scroll-behavior: smooth;
+}
+
+app-root {
+    overflow: hidden;
+    width: 1000px;
+    height: 600px;
+    position: relative;
+    border: 1px solid $secondary_border;
+    display: flex;
+    flex-direction: column;
+
+    & div.os-viewport {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+textarea {
+    resize: none !important;
+    overflow: hidden !important;
+}
+
+img {
+    user-select: none;
+    pointer-events: none;
+}
+
+router-outlet + *, app-setup + *, app-loading + *, app-fatal + * {
+    //display: block;  /* Change display inline to block */
+    animation: fade_in 1s;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}

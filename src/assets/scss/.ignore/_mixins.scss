@@ -1,0 +1,32 @@
+@mixin cssvar ($name, $value) {
+    #{$name}: #{$value};
+}
+
+@mixin margin-x($mx) {
+    margin-left: #{$mx};
+    margin-right: #{$mx};
+}
+
+@mixin margin-y($my) {
+    margin-top: #{$my};
+    margin-bottom: #{$my};
+}
+
+@mixin padding-x($px) {
+    padding-left: #{$px};
+    padding-right: #{$px};
+}
+
+@mixin padding-y($py) {
+    padding-top: #{$py};
+    padding-bottom: #{$py};
+}
+
+@mixin transition($time) {
+    transition: #{$time} all;
+}
+
+@mixin border-extended() {
+    border: 1px solid $secondary_border;
+    outline: 1px solid $primary_border;
+}

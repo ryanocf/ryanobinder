@@ -1,0 +1,68 @@
+{
+    "applicationId": "app.ryanobinder",
+    "version": "v1.0.0-alpha",
+    "applicationName": "ryanobinder",
+    "applicationIcon": "./resources/assets/images/logo.png",
+    "author": "ryano",
+    "description": "ryano.cc",
+    "copyright": "Copyright © ryano.cc All rights reserved.",
+    "defaultMode": "window",
+    "port": 5006,
+    "documentRoot": "/resources/",
+    "url": "/",
+    "enableServer": true,
+    "enableNativeAPI": true,
+    "tokenSecurity": "one-time",
+    "exportAuthInfo": false,
+    "logging": {
+        "enabled": false,
+        "writeToLogFile": false
+    },
+    "nativeAllowList": [],
+    "globalVariables": {
+        "NAME": "ryanobinder"
+    },
+    "modes": {
+        "window": {
+            "title": "ryanobinder",
+            "width": 1000,
+            "height": 600,
+            "minWidth": 1000,
+            "minHeight": 600,
+            "center": true,
+            "fullScreen": false,
+            "alwaysOnTop": false,
+            "icon": "/resources/assets/images/logo.png",
+            "enableInspector": false,
+            "borderless": true,
+            "maximize": false,
+            "resizable": false,
+            "exitProcessOnClose": false,
+            "hidden": true,
+            "nativeAllowList": [
+                "app.*",
+                "window.*",
+                "os.*",
+                "filesystem.*",
+                "storage.*",
+                "debug.*",
+                "updater.*"
+            ]
+        }
+    },
+    "cli": {
+        "binaryName": "ryanobinder",
+        "resourcesPath": "/resources/",
+        "extensionsPath": "/extensions/",
+        "frontendLibrary": {
+            "patchFile": "../src/index.html",
+            "devUrl": "http://localhost:4200",
+            "projectPath": "../",
+            "initCommand": "pnpm install",
+            "devCommand": "ng serve",
+            "buildCommand": "ng build"
+        },
+        "binaryVersion": "5.5.0",
+        "clientVersion": "5.5.0"
+    }
+}

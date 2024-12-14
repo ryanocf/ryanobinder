@@ -1,0 +1,19 @@
+#content {
+    align-items: flex-start;
+    background-color: $secondary_bg;
+    border-radius: $border_radius;
+    display: flex;
+    flex-direction: column;
+    height: 530px;
+    justify-content: flex-start;
+    left: 290px;
+    padding: 10px;
+    position: absolute;
+    top: 40px;
+    width: 680px;
+}
+
+.tab {
+    display: none;
+    width: 100%;
+}

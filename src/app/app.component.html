@@ -1,0 +1,61 @@
+<div class="w-full h-full relative">
+    <p-toast class="absolute z-20" position="bottom-right" />
+    <app-navbar class="w-full"></app-navbar>
+    @if (!userService.init) {
+        <p-dialog 
+            [visible]="termsVisible"
+            styleClass="overflow-clip"
+        >
+            <ng-template pTemplate="headless">
+                <div class="grid grid-flow-row auto-rows-fr gap-4" style="width: 800px; height: 500px;">
+                    <div class="flex flex-row justify-between pl-4">
+                        <div class="text-lg/none quicksand-bold pt-2">Terms</div>
+                        <p-selectButton
+                            [options]="languageOptions" 
+                            [(ngModel)]="language" 
+                            allowEmpty="false"
+                            optionLabel="label"
+                        >
+                        </p-selectButton>
+                    </div>
+                    <div class="px-4 overflow-y-auto row-span-6">
+                        <markdown
+                            [src]="'/assets/markdown/terms-' + language.value + '.md'"
+                        ></markdown>
+                    </div>
+                    <div class="grid grid-flow-col auto-rows-fr gap-4">
+                        <div class="flex justify-end">
+                            <p-button
+                                label="Agree"
+                                (click)="agreeTerms()"
+                            ></p-button>
+                        </div>
+                        <div class="flex justify-starts">
+                            <p-button
+                                label="Decline"
+                                outlined
+                                (click)="declineTerms()"
+                            ></p-button>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </p-dialog>
+
+        <p-confirmDialog
+            [closable]="false"
+        />
+
+        <app-loading></app-loading>
+    } @else if (userService.username && userService.forum) {
+        <app-sidebar class="sidebar"></app-sidebar>
+        <div id="content">
+            <div class="w-full h-full">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    } @else if (userService.avatar === '' || userService.forum === '') {
+        <app-setup></app-setup>
+    }
+    <!-- <div class="absolute bottom-4 right-4">time elapsed: {{time}}</div> -->
+</div>

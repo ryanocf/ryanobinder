@@ -1,0 +1,46 @@
+@layer primeng;
+
+@import 'primeng/resources/primeng.min.css';
+@import 'primeicons/primeicons.css';
+
+.p-tabmenu {
+    & .p-tabmenu-nav {
+        background-color: transparent;
+
+        & .p-tabmenuitem { 
+            & .p-menuitem-link {
+                padding: 0.875rem 1.125rem;
+                background-color: transparent;
+            }
+        }
+    }
+}
+
+.p-progress-spinner-circle {
+    stroke: $default_color;
+    animation-name: p-progress-spinner-dash;
+}
+
+.p-card {
+    background-color: $secondary_bg;
+}
+
+.p-colorpicker-custom {
+    width: 100%;
+    height: 100%;
+
+    & .p-colorpicker-overlay {
+        width: 100%;
+        height: 100%;
+    }
+
+    & .p-colorpicker-preview {
+        border: none;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+:root {
+    --font-family: "Twemoji Country Flags", "Inter var", sans-serif;
+}

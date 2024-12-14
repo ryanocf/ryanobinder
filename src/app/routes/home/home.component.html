@@ -1,0 +1,88 @@
+<div class="flex flex-col p-4 w-full h-full">
+    <div
+        class="flex flex-col w-full justify-center min-h-20 h-20 text-center object-fit overflow-clip bg-cover rounded-xl mb-8"
+        style="background-image: url('assets/images/pattern.svg'); background-position: 45%;"
+    >
+        <div class="text-xl/none font-bold text-outline-lg text-outline-stone-800">Welcome back</div>
+        <div class="text-3xl/none quicksand-bold text-outline-lg text-outline-stone-800">{{ userService.username }}</div>
+    </div>
+    <div>
+        <div class="relative grid grid-flow-col grid-rows-1 auto-cols-fr gap-4">
+            @for (item of dmStats; track $index) {
+                <div class="flex flex-col justify-center items-center">
+                    <div
+                        class="relative flex justify-center items-center w-20 h-20 overflow-hidden rounded-lg bg-primary"
+                    >
+                        <div
+                            class="absolute flex w-52 h-52 object-fit overflow-clip bg-cover bg-clip-text text-transparent"
+                            style="background-image: url('assets/images/pattern.svg'); background-position: 45%;"
+                        >
+                            <i [class]="item.icon + ' m-auto'" style="font-size: 72px;"></i>
+                        </div>
+                    </div>
+                    <div
+                        class="text-lg w-20 mt-1 rounded text-center font-bold bg-primary"
+                    >
+                        {{ item.total }}
+                    </div>
+                    <div
+                        class="text-lg w-20 mt-1 rounded text-center font-bold bg-primary"
+                    >
+                        {{ item.today }}
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <div>
+        <div class="relative grid grid-flow-col grid-rows-2 grid-cols-2 auto-cols-fr gap-6 mt-8">
+            @for (item of globalStats; track $index) {
+                <div class="flex justify-center">
+                    <div
+                        class="flex flex-row justify-between w-full mt-1 rounded bg-primary pl-2 overflow-hidden"
+                    >
+                        <div class="py-2">{{ item.label }}</div>
+                        <div class="relative flex justify-center items-center h-full min-w-16 w-1/4 rounded-e-md overflow-hidden">
+                            <div
+                                class="absolute flex w-52 h-52 object-fit overflow-clip bg-cover"
+                                style="background-image: url('assets/images/pattern.svg'); background-position: 100%;"
+                            ></div>
+                            <div class="absolute text-outline text-outline-stone-800 font-bold">
+                                {{ item.content }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="grid grid-flow-col grid-rows-1 auto-cols-fr gap-4 mt-auto p-fluid">
+        <!-- <p-button
+            label="Changelog"
+            icon="pi pi-file-edit"
+            [style]="{ 'background-color': '#e84621', 'color': 'white', 'border-color': '#e84621' }"
+        ></p-button> -->
+        <p-button
+            label="Changelog"
+            icon="pi pi-file-edit"
+            class="object-fit overflow-clip bg-cover"
+            [style]="{
+                'background-image': 'url(\'assets/images/pattern.svg\')',
+                'color': 'white',
+                'border-color': 'transparent',
+                'background-size': '100%',
+            }"
+            disabled
+        ></p-button>
+        <p-button
+            label="Forum"
+            icon="pi pi-comments"
+            (click)="openUrl('https://lyd-roleplay.de')"
+        ></p-button>
+        <p-button
+            label="Github"
+            icon="pi pi-github"
+            (click)="openUrl('https://github.com/ryanocf')"
+        ></p-button>
+    </div>
+</div>

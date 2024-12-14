@@ -1,0 +1,37 @@
+/*
+ * window sizing
+ * '-2px' = border
+ */
+ $window_width: 1000px;
+ $window_height: 600px;
+ 
+ // 6a00ff
+ 
+ /*
+  * background globals
+  */
+ $highlight_bg: #393939;
+ $primary_bg: #191919;
+ $secondary_bg: #292929;
+ 
+ /* 
+  * text globals
+  */
+ $default_color: #e84621;
+ $primary_color: #b2b2b2;
+ $secondary_color: #ffffff;
+ 
+ /*
+  * border globals
+  */
+ $primary_border: #000000;
+ $secondary_border: #292929;
+ $border_radius: 15px;
+ 
+ /*
+  * cursor colors
+  */
+ $cursor_colors: 'amber', 'black', 'brown', 'cobalt', 'crimson', 'cyan',
+     'disabled', 'emerald', 'green', 'indigo', 'lime', 'magenta', 'mauve',
+     'olive', 'orange', 'pink', 'red', 'stealth_black', 'stealth_white', 'steel',
+     'taupe', 'teal', 'violet', 'white', 'yellow';

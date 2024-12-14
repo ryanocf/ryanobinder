@@ -1,0 +1,13 @@
+@use 'sass:color';
+
+@function toRGB($color) {
+    @return rgb(red($color), green($color), blue($color));
+}
+
+@function toRGBA($color) {
+    @return rgba(red($color), green($color), blue($color), alpha($color));
+}
+
+@function setAlpha($color, $alpha) {
+    @return 'rgb(#{red($color)}, #{green($color)}, #{blue($color)} / #{$alpha})';
+}
