@@ -7,7 +7,7 @@
 ## Requirements
 
 - node LTS version (nodejs.org)
-- `npm`, `neutralino/neu@11.3.0`, `angular/cli@17.3.8` globally installed
+- `npm`, `neutralino/neu@11.3.0`, `angular/cli@17.3.17` globally installed
 - Autohotkey v1
 
 ## Prerequisites
